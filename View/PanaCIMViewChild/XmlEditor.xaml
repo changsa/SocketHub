@@ -1,0 +1,19 @@
+﻿<Window x:Class="SOCKETHUB.View.PanaCIMViewChild.XmlEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="XmlEditor" Height="700" Width="800" Loaded="Window_Loaded_1" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0">
+            <RichTextBox Name="XMLMessageDetail" Block.LineHeight="1">
+
+            </RichTextBox>
+        </Border>
+        <Canvas Grid.Row="1">
+            <Button Name="Save" Height="30" Width="72" Canvas.Left="90" Canvas.Top="10" Click="Save_Click">Save</Button>
+        </Canvas>
+    </Grid>
+</Window>

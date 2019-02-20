@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="SOCKETHUB.View.PANACIMVIEW"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600" Loaded="UserControl_Loaded_1">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border>
+            <Canvas>
+                <Label Name="AIPIP" Canvas.Left="7" Canvas.Top="6">AIP IP:</Label>
+                <TextBox Name="TB_AIPIP" Width="105" Canvas.Left="51" Canvas.Top="8" KeyDown="IntOnlyDot_PreviewKeyDown">192.168.1.1</TextBox>
+                <TextBox Name="TB_PORT" Width="49" Canvas.Left="171" Canvas.Top="8" KeyDown="IntOnly_PreviewKeyDown">10000</TextBox>
+                <Button Name="BT_START" Canvas.Left="25" Canvas.Top="43" Width="82" Click="BT_START_Click">连接</Button>
+                <Button Name="BT_STOP" Canvas.Left="132" Canvas.Top="43" Width="78" Click="BT_STOP_Click">断开</Button>
+                <GroupBox Header="Msg" Name="GP_MSG" Canvas.Top="75" Height="240" Width="230">
+                    <StackPanel>
+                        <Border Margin="0,2,0,2" Panel.ZIndex="0" BorderBrush="Black" BorderThickness="1" Height="27">
+                            <Canvas>
+                                <Label Background="#FF72D1C4" Canvas.Bottom="0" FontWeight="Bold" Canvas.Top="0" Height="25" Width="30" FontSize="10" Canvas.Left="0">Msg</Label>
+                                <TextBox Height="23" Width="48" Canvas.Top="1" Canvas.Left="33" IsEnabled="False" FontSize="10">剩余次数</TextBox>
+                                <TextBox Height="23" Width="58" Canvas.Top="1" Canvas.Left="84" IsEnabled="False" FontSize="8">时间间隔(ms)</TextBox>
+                                <Button Height="23" Canvas.Top="1" IsEnabled="False" Canvas.Left="145" Width="26" FontSize="8">Stop</Button>
+                                <Button Canvas.Left="175" Canvas.Top="1" IsEnabled="False" Width="41">SEND</Button>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="0,2,0,2" Name="BD_PING" Panel.ZIndex="1" BorderBrush="Black" BorderThickness="1" Height="27">
+                            <Canvas>
+                                <Label Background="#FF72D1C4" Canvas.Bottom="0" FontWeight="Bold" Canvas.Top="0" Height="25" Width="30" FontSize="10" Canvas.Left="0">REQ</Label>
+                                <TextBox Name="TB_TIMES_PING" Height="23" Width="48" Canvas.Top="1" Canvas.Left="33" KeyDown="IntOnly_PreviewKeyDown">1</TextBox>
+                                <TextBox Name="TB_TIMER_PING" Height="23" Width="39" Canvas.Top="1" Canvas.Left="84" KeyDown="IntOnly_PreviewKeyDown">1000</TextBox>
+                                <Button Name="TB_STOP_PING" Height="23" Canvas.Top="1" Canvas.Left="127" Width="26" FontSize="8" Click="TB_STOP_PING_Click">Stop</Button>
+                                <Button Name="TB_SEND_PING" Canvas.Left="156" Canvas.Top="1" Click="TB_SEND_PING_Click" FontSize="8" Width="27" Height="23">Send</Button>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="0,2,0,2" Name="BD_501" Panel.ZIndex="1" BorderBrush="Black" BorderThickness="1" Height="27">
+                            <Canvas>
+                                <Label Background="#FF72D1C4" Canvas.Bottom="0" FontWeight="Bold" Canvas.Top="0" Height="25" Width="30" FontSize="10" Canvas.Left="0">501</Label>
+                                <TextBox Name="TB_TIMES_501" Height="23" Width="48" Canvas.Top="1" Canvas.Left="33" KeyDown="IntOnly_PreviewKeyDown">1</TextBox>
+                                <TextBox Name="TB_TIMER_501" Height="23" Width="40" Canvas.Top="1" Canvas.Left="84" KeyDown="IntOnly_PreviewKeyDown">1000</TextBox>
+                                <Button Name="TB_STOP_501" Height="23" Canvas.Top="1" Canvas.Left="127" Width="26" FontSize="8" Click="TB_STOP_501_Click">Stop</Button>
+                                <Button Name="TB_SEND_501" Canvas.Left="156" Canvas.Top="1" Click="TB_SEND_501_Click" FontSize="8" Width="27" Height="23">Send</Button>
+                                <Button Name="TB_EDIT_501" Canvas.Left="186" Canvas.Top="1" Click="TB_EDIT_501_Click" FontSize="8" Width="27" Height="23">Edit</Button>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="0,2,0,2" Name="BD_550" Panel.ZIndex="1" BorderBrush="Black" BorderThickness="1" Height="27">
+                            <Canvas>
+                                <Label Background="#FF72D1C4" Canvas.Bottom="0" FontWeight="Bold" Canvas.Top="0" Height="25" Width="30" FontSize="10" Canvas.Left="0">550</Label>
+                                <TextBox Name="TB_TIMES_550" Height="23" Width="48" Canvas.Top="1" Canvas.Left="33" KeyDown="IntOnly_PreviewKeyDown">1</TextBox>
+                                <TextBox Name="TB_TIMER_550" Height="23" Width="40" Canvas.Top="1" Canvas.Left="84" KeyDown="IntOnly_PreviewKeyDown">1000</TextBox>
+                                <Button Name="TB_STOP_550" Height="23" Canvas.Top="1" Canvas.Left="127" Width="26" FontSize="8" Click="TB_STOP_550_Click">Stop</Button>
+                                <Button Name="TB_SEND_550" Canvas.Left="156" Canvas.Top="1" Click="TB_SEND_550_Click" FontSize="8" Width="27" Height="23">Send</Button>
+                                <Button Name="TB_EDIT_550" Canvas.Left="186" Canvas.Top="1" Click="TB_EDIT_550_Click" FontSize="8" Width="27" Height="23">Edit</Button>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="0,2,0,2" Name="BD_551" Panel.ZIndex="1" BorderBrush="Black" BorderThickness="1" Height="27">
+                            <Canvas>
+                                <Label Background="#FF72D1C4" Canvas.Bottom="0" FontWeight="Bold" Canvas.Top="0" Height="25" Width="30" FontSize="10" Canvas.Left="0">551</Label>
+                                <TextBox Name="TB_TIMES_551" Height="23" Width="48" Canvas.Top="1" Canvas.Left="33" KeyDown="IntOnly_PreviewKeyDown">1</TextBox>
+                                <TextBox Name="TB_TIMER_551" Height="23" Width="39" Canvas.Top="1" Canvas.Left="84" KeyDown="IntOnly_PreviewKeyDown">1000</TextBox>
+                                <Button Name="TB_STOP_551" Height="23" Canvas.Top="1" Canvas.Left="127" Width="26" FontSize="8" Click="TB_STOP_551_Click">Stop</Button>
+                                <Button Name="TB_SEND_551" Canvas.Left="156" Canvas.Top="1" Click="TB_SEND_551_Click" FontSize="8" Width="27" Height="23">Send</Button>
+                                <Button Name="TB_EDIT_551" Canvas.Left="186" Canvas.Top="1" Click="TB_EDIT_551_Click" FontSize="8" Width="27" Height="23">Edit</Button>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="0,2,0,2" Name="BD_580" Panel.ZIndex="1" BorderBrush="Black" BorderThickness="1" Height="27">
+                            <Canvas>
+                                <Label Background="#FF72D1C4" Canvas.Bottom="0" FontWeight="Bold" Canvas.Top="0" Height="25" Width="30" FontSize="10" Canvas.Left="0">580</Label>
+                                <TextBox Name="TB_TIMES_580" Height="23" Width="48" Canvas.Top="1" Canvas.Left="33" KeyDown="IntOnly_PreviewKeyDown">1</TextBox>
+                                <TextBox Name="TB_TIMER_580" Height="23" Width="39" Canvas.Top="1" Canvas.Left="84" KeyDown="IntOnly_PreviewKeyDown">1000</TextBox>
+                                <Button Name="TB_STOP_580" Height="23" Canvas.Top="1" Canvas.Left="127" Width="26" FontSize="8" Click="TB_STOP_580_Click">Stop</Button>
+                                <Button Name="TB_SEND_580" Canvas.Left="156" Canvas.Top="1" Click="TB_SEND_580_Click" FontSize="8" Width="27" Height="23">Send</Button>
+                                <Button Name="TB_EDIT_580" Canvas.Left="186" Canvas.Top="1" Click="TB_EDIT_580_Click" FontSize="8" Width="27" Height="23">Edit</Button>
+                            </Canvas>
+                        </Border>
+                        <Border Margin="0,2,0,2" Name="BD_Any" Panel.ZIndex="1" BorderBrush="Black" BorderThickness="1" Height="27">
+                            <Canvas>
+                                <Label Background="#FF72D1C4" Canvas.Bottom="0" FontWeight="Bold" Canvas.Top="0" Height="25" Width="30" FontSize="10" Canvas.Left="0">580</Label>
+                                <TextBox Name="TB_TIMES_Any" Height="23" Width="48" Canvas.Top="1" Canvas.Left="33" KeyDown="IntOnly_PreviewKeyDown" IsEnabled="False">1</TextBox>
+                                <TextBox Name="TB_TIMER_Any" Height="23" Width="39" Canvas.Top="1" Canvas.Left="84" KeyDown="IntOnly_PreviewKeyDown" IsEnabled="False">1000</TextBox>
+                                <Button Name="TB_STOP_Any" Height="23" Canvas.Top="1" Canvas.Left="127" Width="26" FontSize="8" Click="TB_STOP_580_Click" IsEnabled="False">Stop</Button>
+                                <Button Name="TB_SEND_Any" Canvas.Left="156" Canvas.Top="1" Click="TB_SEND_Any_Click" FontSize="8" Width="27" Height="23">Send</Button>
+                                <Button Name="TB_EDIT_Any" Canvas.Left="186" Canvas.Top="1" Click="TB_EDIT_Any_Click" FontSize="8" Width="27" Height="23">Edit</Button>
+                            </Canvas>
+                        </Border>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Auto Send Msg" Name="GP_MSG_AUTO" Canvas.Top="310" Height="55" Width="230">
+                    <Border Margin="0,2,0,2" Name="BD_551_AUTO" Panel.ZIndex="1" BorderBrush="Black" BorderThickness="1" Height="27">
+                        <Canvas>
+                            <Label Background="#FF72D1C4" Canvas.Bottom="0" FontWeight="Bold" Canvas.Top="0" Height="25" Width="30" FontSize="10" Canvas.Left="0">551</Label>
+                            <TextBox Name="TB_TIMES_551_AUTO" Height="23" Width="36" Canvas.Top="1" Canvas.Left="31" KeyDown="IntOnly_PreviewKeyDown" IsEnabled="False">0</TextBox>
+                            <TextBox Name="TB_TIMES_Rece_551_AUTO" Height="23" Width="36" Canvas.Top="1" Canvas.Left="68" KeyDown="IntOnly_PreviewKeyDown" IsEnabled="False">0</TextBox>
+                            <TextBox Name="TB_TIMER_551_AUTO" Height="23" Width="44" Canvas.Top="1" Canvas.Left="106" KeyDown="IntOnly_PreviewKeyDown">1000</TextBox>
+                            <Button Name="TB_STOP_551_AUTO" Height="23" Canvas.Top="1" Canvas.Left="152" Width="26" FontSize="8">Stop</Button>
+                            <Button Name="TB_SEND_551_AUTO" Canvas.Left="181" Canvas.Top="1" Click="TB_SEND_551_AUTO_Click" >Start</Button>
+                        </Canvas>
+                    </Border>
+                </GroupBox>
+                <Button Name="BT_CLEAN" Canvas.Right="10" Canvas.Bottom="10" Click="BT_CLEAN_Click">Clear</Button>
+                    <Label Background="#FF72D1C4" Canvas.Left="10" Canvas.Bottom="10" FontWeight="Bold">PANACIM</Label>
+            </Canvas>
+        </Border>
+        <TextBox Grid.Column="1" Name="TB_LOG" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" FontSize="9"/>
+    </Grid>
+</UserControl>

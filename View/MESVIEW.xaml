@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="SOCKETHUB.View.MESVIEW"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600" Loaded="UserControl_Loaded_1" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border>
+            <Canvas>
+                <Label Name="AIPIP" Canvas.Left="7" Canvas.Top="6">MES:</Label>
+                <ComboBox Name="TB_MESIP" Width="105" Canvas.Left="51" Canvas.Top="8"></ComboBox>
+                <TextBox Name="TB_PORT" Width="49" Canvas.Left="171" Canvas.Top="8" KeyDown="IntOnly_PreviewKeyDown">20000</TextBox>
+                <Button Name="BT_START" Canvas.Left="25" Canvas.Top="43" Width="82" Click="BT_START_Click">开启</Button>
+                <Button Name="BT_STOP" Canvas.Left="132" Canvas.Top="43" Width="78" Click="BT_STOP_Click">关闭</Button>
+                <GroupBox Header="Option" Name="GP_MSG" Canvas.Top="75" Height="160" Width="230">
+                    <Canvas>
+                        <CheckBox Name="CB_PING_RSP" Content="PING RSP" Canvas.Left="10" Canvas.Top="10" IsChecked="True" Checked="CB_PING_RSP_Checked" Unchecked="CB_PING_RSP_Unchecked"></CheckBox>
+                        <CheckBox Name="CB_501" Content="XML 501" Canvas.Left="10" Canvas.Top="31" IsChecked="True" Checked="CB_501_Checked" Unchecked="CB_501_Unchecked"></CheckBox>
+                        <CheckBox Name="CB_550" Content="XML 550" Canvas.Left="10" Canvas.Top="52" IsChecked="True" Checked="CB_550_Checked" Unchecked="CB_550_Unchecked"></CheckBox>
+                        <CheckBox Name="CB_551" Content="XML 551" Canvas.Left="10" Canvas.Top="73" IsChecked="True" Checked="CB_551_Checked" Unchecked="CB_551_Unchecked"></CheckBox>
+                        <CheckBox Name="CB_5011" Content="XML 5011" Canvas.Left="10" Canvas.Top="94" IsChecked="True" Checked="CB_5011_Checked" Unchecked="CB_5011_Unchecked"></CheckBox>
+                        <CheckBox Name="CB_580" Content="XML 580" Canvas.Left="10" Canvas.Top="115" IsChecked="True" Checked="CB_580_Checked" Unchecked="CB_580_Unchecked"></CheckBox>
+                        <TextBox Name="TB_SUBPANEL" Height="23" Canvas.Left="179" TextWrapping="Wrap" Text="4" Canvas.Top="90" Width="39"/>
+                    </Canvas>
+                </GroupBox>
+                <Button Name="BT_CLEAN" Canvas.Right="10" Canvas.Bottom="10" Click="BT_CLEAN_Click">Clear</Button>
+                <Label Background="#FF72D1C4" Canvas.Left="10" Canvas.Bottom="10" FontWeight="Bold">MES</Label>
+            </Canvas>
+        </Border>
+        <TextBox Grid.Column="1" Name="TB_LOG" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" FontSize="9"/>
+        <Label Content="Pattern" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="137,180,0,0" Width="51"/>
+        <Button Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="146,250,0,0" Click="Button_Click_1"/>
+    </Grid>
+</UserControl>
